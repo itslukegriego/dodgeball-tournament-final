@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const ADMIN_PASSWORD = "keystone2025";
 
-const generateBracketMatches = (arenaTeams) => {
+const generateBracketMatches = (arenaTeams: Team[]): [Team, Team | null][] => {
   const matches = [];
   const shuffled = [...arenaTeams].sort(() => 0.5 - Math.random());
   for (let i = 0; i < shuffled.length; i += 2) {
