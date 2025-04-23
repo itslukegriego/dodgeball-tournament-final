@@ -1,16 +1,24 @@
 import { useState, useEffect } from "react";
 
+type Player = {
+  name: string;
+  grade: string;
+  number: string;
+};
+
+type Team = {
+  teamName: string;
+  arena: string;
+  players: Player[];
+};
+
 const ADMIN_PASSWORD = "keystone2025";
 
 const generateBracketMatches = (arenaTeams: Team[]): [Team, Team | null][] => {
-  const matches = [];
+  const matches: [Team, Team | null][] = [];
   const shuffled = [...arenaTeams].sort(() => 0.5 - Math.random());
   for (let i = 0; i < shuffled.length; i += 2) {
-    if (shuffled[i + 1]) {
-      matches.push([shuffled[i], shuffled[i + 1]]);
-    } else {
-      matches.push([shuffled[i], null]);
-    }
+    matches.push([shuffled[i], shuffled[i + 1] || null]);
   }
   return matches;
 };
