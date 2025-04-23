@@ -24,7 +24,7 @@ const generateBracketMatches = (arenaTeams: Team[]): [Team, Team | null][] => {
 };
 
 export default function Home() {
-  const [teams, setTeams] = useState([]);
+  const [teams, setTeams] = useState<Team[]>([]);
   const [teamName, setTeamName] = useState("");
   const [arena, setArena] = useState("Arena #1 Varsity Guys (10th–12th)");
   const [players, setPlayers] = useState(Array(5).fill({ name: "", grade: "", number: "" }));
